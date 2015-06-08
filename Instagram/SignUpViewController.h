@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.h
+//  SignUpViewController.h
 //  Instagram
 //
 //  Created by Alex Santorineos on 6/8/15.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
 
-@interface ProfileViewController : UIViewController
+@interface SignUpViewController : UIViewController
 
 @end

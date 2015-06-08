@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="674" y="3069"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Login View Controller-->
         <scene sceneID="s4I-ln-FZG">
             <objects>
-                <viewController id="XcA-Q9-NDV" sceneMemberID="viewController">
+                <viewController id="XcA-Q9-NDV" customClass="AddLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SQ5-gF-wBQ"/>
                         <viewControllerLayoutGuide type="bottom" id="0vI-7s-XBX"/>
@@ -65,13 +65,16 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="170" y="146" width="46" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="onLogginTapped:" destination="XcA-Q9-NDV" eventType="touchUpInside" id="yTc-DQ-R9U"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dbk-Qe-muy">
                                 <rect key="frame" x="176" y="76" width="228" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="66" y="76" width="228" height="30"/>
+                                    <rect key="frame" x="72" y="76" width="228" height="30"/>
                                 </variation>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="don't have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4h-Cs-mBX">
@@ -83,14 +86,6 @@
                                     <rect key="frame" x="96" y="184" width="181" height="21"/>
                                 </variation>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="55V-Dl-mEs">
-                                <rect key="frame" x="176" y="114" width="221" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="108" y="114" width="221" height="30"/>
-                                </variation>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2up-Wh-ozV">
                                 <rect key="frame" x="241" y="213" width="67" height="34"/>
                                 <state key="normal" title="sign Up">
@@ -104,9 +99,22 @@
                                     <segue destination="xg5-WO-QXg" kind="show" id="gN4-bE-L6v"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="55V-Dl-mEs">
+                                <rect key="frame" x="176" y="114" width="221" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="83" y="114" width="221" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="lG0-se-SlE" id="MsB-oM-oP0"/>
+                        <outlet property="passwordTextField" destination="dbk-Qe-muy" id="ntj-zt-pRj"/>
+                        <outlet property="userNameTextField" destination="55V-Dl-mEs" id="MSR-Vu-1Hi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZxG-O3-z1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="-910" y="684"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="Nfh-36-a68">
             <objects>
-                <viewController id="xg5-WO-QXg" sceneMemberID="viewController">
+                <viewController id="xg5-WO-QXg" customClass="SignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qsA-6l-pHS"/>
                         <viewControllerLayoutGuide type="bottom" id="WDM-Zn-HFs"/>
@@ -207,13 +215,16 @@
                                 <rect key="frame" x="176" y="28" width="221" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="86" y="72" width="221" height="30"/>
+                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YFN-Tf-Zad">
                                 <rect key="frame" x="176" y="76" width="228" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="86" y="72" width="228" height="30"/>
+                                    <rect key="frame" x="86" y="145" width="228" height="30"/>
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EMAIL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rfn-LV-A2N">
@@ -221,7 +232,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="73" y="130" width="241" height="30"/>
+                                    <rect key="frame" x="80" y="110" width="241" height="30"/>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNr-jr-e0u">
@@ -230,12 +241,21 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="195" y="175" width="52" height="30"/>
+                                    <rect key="frame" x="161" y="196" width="52" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="onSignUPButtonTapped:" destination="xg5-WO-QXg" eventType="touchUpInside" id="4rn-UE-uc8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="Rfn-LV-A2N" id="xRl-mQ-H9S"/>
+                        <outlet property="passwordTextField" destination="YFN-Tf-Zad" id="i1j-gh-TBo"/>
+                        <outlet property="signUpButton" destination="wNr-jr-e0u" id="741-DQ-gRY"/>
+                        <outlet property="usernameTextField" destination="tZE-Ts-5CX" id="uEf-6a-CSw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYU-u9-WyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
