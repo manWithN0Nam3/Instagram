@@ -15,6 +15,7 @@
 		97C89E981B2633260034C215 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C89E971B2633260034C215 /* Images.xcassets */; };
 		97C89E9B1B2633260034C215 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97C89E991B2633260034C215 /* LaunchScreen.xib */; };
 		97C89EA71B2633260034C215 /* InstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C89EA61B2633260034C215 /* InstagramTests.m */; };
+		97C89EB21B26443A0034C215 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C89EB11B26443A0034C215 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		97C89EA01B2633260034C215 /* InstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C89EA51B2633260034C215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97C89EA61B2633260034C215 /* InstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramTests.m; sourceTree = "<group>"; };
+		97C89EB01B26443A0034C215 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		97C89EB11B26443A0034C215 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				97C89E911B2633260034C215 /* ViewController.h */,
 				97C89E921B2633260034C215 /* ViewController.m */,
 				97C89E941B2633260034C215 /* Main.storyboard */,
+				97C89EB01B26443A0034C215 /* ProfileViewController.h */,
+				97C89EB11B26443A0034C215 /* ProfileViewController.m */,
 				97C89E971B2633260034C215 /* Images.xcassets */,
 				97C89E991B2633260034C215 /* LaunchScreen.xib */,
 				97C89E8E1B2633260034C215 /* Instagram.xcdatamodeld */,
@@ -226,6 +231,7 @@
 				97C89E901B2633260034C215 /* Instagram.xcdatamodeld in Sources */,
 				97C89E931B2633260034C215 /* ViewController.m in Sources */,
 				97C89E8A1B2633260034C215 /* main.m in Sources */,
+				97C89EB21B26443A0034C215 /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
