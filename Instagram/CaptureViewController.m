@@ -126,9 +126,9 @@
 
 [PictureUploads UploadImage:self.image andVideoPath:self.videoFilePath completionHandler:^(NSMutableArray *array) {
     self.images = array;
-                            NSLog(@"😜😜😜😜%@😜😜😜😜",self.images);
+ NSLog(@"😜😜😜😜%@😜😜😜😜",self.images);
 
-
+    [self reset];
 
 }];
 }
