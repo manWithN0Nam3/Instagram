@@ -18,6 +18,46 @@
 
 @implementation ProfileViewController
 
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveNotification:) name:@"Test1" object:nil];
+    }
+    return self;
+}
+
+-(void)receiveNotification:(NSNotification *)notification {
+    if ([notification.name isEqualToString:@"Test1"]) {
+
+        [self queryFromParse];
+
+    }
+
+}
+
+-(void)queryFromParse{
+
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
+    // [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser] objectId]];
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        else {
+            // We found messages!
+            self.messages = objects;
+            [self.tableView reloadData];
+            NSLog(@"Retrieved %d messages", [self.messages count]);
+        }
+    }];
+    
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
