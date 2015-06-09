@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CaptureViewController.h
 //  Instagram
 //
 //  Created by Alex Santorineos on 6/8/15.
@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface CaptureViewController : UIViewController
 
-@property NSString *tomString;
-
+@property (nonatomic,strong)UIImagePickerController *imagePicker;
 @end
-
