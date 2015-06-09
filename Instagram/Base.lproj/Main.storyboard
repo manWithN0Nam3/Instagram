@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JaE-5D-Dop">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -47,25 +48,71 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Lfv-su-fa7">
                                 <rect key="frame" x="0.0" y="284" width="616" height="275"/>
                                 <color key="backgroundColor" red="0.82643022486772488" green="0.82643022486772488" blue="0.82643022486772488" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="215" id="Ujz-vQ-bqN"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zvW-LT-WMQ">
-                                    <size key="itemSize" width="129" height="112"/>
+                                    <size key="itemSize" width="144" height="137"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="y03-CA-YaS">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="y03-CA-YaS" customClass="CollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="144" height="137"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c5m-Ji-dyY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="0.0" y="4" width="136" height="87"/>
+                                                    </variation>
+                                                </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFT-lI-7pG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="14" y="83" width="55" height="54"/>
+                                                    </variation>
+                                                </textView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <rect key="contentStretch" x="0.050000000000000003" y="0.0" width="1" height="1"/>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="c5m-Ji-dyY"/>
+                                                <exclude reference="rFT-lI-7pG"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="c5m-Ji-dyY"/>
+                                                <include reference="rFT-lI-7pG"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="imageView" destination="c5m-Ji-dyY" id="0GK-lC-rI7"/>
+                                            <outlet property="textView" destination="rFT-lI-7pG" id="90J-Zo-tpC"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ujz-vQ-bqN"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Ujz-vQ-bqN"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="eyo-ni-Vf3" id="dJ7-V1-ZtG"/>
                                     <outlet property="delegate" destination="eyo-ni-Vf3" id="TF2-Q4-2NE"/>
@@ -73,6 +120,25 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="g2W-hf-bCB" firstAttribute="top" secondItem="Lfv-su-fa7" secondAttribute="bottom" id="0E9-2U-34a"/>
+                            <constraint firstItem="Lfv-su-fa7" firstAttribute="leading" secondItem="eXg-Wl-jXH" secondAttribute="leadingMargin" constant="-16" id="GVD-ZF-8ob"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lfv-su-fa7" secondAttribute="trailing" constant="-16" id="Jtp-P5-1Bw"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="GVD-ZF-8ob"/>
+                                <exclude reference="Jtp-P5-1Bw"/>
+                                <exclude reference="0E9-2U-34a"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="GVD-ZF-8ob"/>
+                                <include reference="Jtp-P5-1Bw"/>
+                                <include reference="0E9-2U-34a"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="f2d-SD-lgy">
                         <barButtonItem key="rightBarButtonItem" title="logout" id="un4-yF-ged">
@@ -88,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9a-aV-dTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="674" y="3069"/>
+            <point key="canvasLocation" x="673.5" y="3069"/>
         </scene>
         <!--Add Login View Controller-->
         <scene sceneID="s4I-ln-FZG">

@@ -43,14 +43,14 @@
         fileName = @"image.jpg";
         fileType = @"image";
     }
-
-    else{
-        //data type is video
-        fileData=[NSData dataWithContentsOfFile:videoFilePath];
-        fileName = @"video.mov";
-        fileType = @"video";
-
-    }
+//
+//    else{
+//        //data type is video
+//        fileData=[NSData dataWithContentsOfFile:videoFilePath];
+//        fileName = @"video.mov";
+//        fileType = @"video";
+//
+//    }
 
     File *file1 = [[File alloc]initWithData:fileData andWithName:fileName];
     
