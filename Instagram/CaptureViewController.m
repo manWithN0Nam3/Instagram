@@ -28,7 +28,7 @@
     self.imagePicker = [[UIImagePickerController alloc]init];
     self.imagePicker.delegate  = self;
     self.imagePicker.allowsEditing =YES;
-    self.imagePicker.videoMaximumDuration = 16;
+    self.imagePicker.videoMaximumDuration = 5;
 
 
     //checks if camera is accesible
@@ -55,7 +55,7 @@
     self.imagePicker = [[UIImagePickerController alloc]init];
     self.imagePicker.delegate  = self;
     self.imagePicker.allowsEditing =YES;
-    self.imagePicker.videoMaximumDuration = 16;
+    self.imagePicker.videoMaximumDuration = 5;
 
     //checks if camera is accesible
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {

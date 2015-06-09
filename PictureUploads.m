@@ -16,10 +16,10 @@
 
 
     if (self) {
-        self.data =data;
-        self.image = image;
-        self.fileName= fileName;
-        self.fileType = fileType;
+//        self.data =data;
+//        self.image = image;
+//        self.fileName= fileName;
+//        self.fileType = fileType;
     }
     return self;
 
@@ -82,16 +82,9 @@
                     [alertview show];
                 }else{
                     //everything was succesful
-
-                    //
-                    //                        for (PFObject *object in self.images) {
-                    //                        self.images = [NSArray arrayWithObject:object];
-                    //                            NSLog(@"😜😜😜😜%@😜😜😜😜",object);
-                    //                        }
                     [images addObject:picObject];
                     NSLog(@"😜😜😜😜%@😜😜😜😜",images);
 //                    [self reset];
-
                 }
 
                 complete(images);
