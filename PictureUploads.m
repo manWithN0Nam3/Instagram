@@ -7,7 +7,7 @@
 //
 
 #import "PictureUploads.h"
-
+#import "File.h"
 @implementation PictureUploads
 
 -(instancetype)initWithData:(NSData *)data andFileName :(NSString *)fileName andFileType:(NSString *)fileType andImage:(UIImage*)image{
@@ -52,7 +52,11 @@
 
     }
 
-    PFFile *file = [PFFile fileWithName:fileName data:fileData];
+    File *file1 = [[File alloc]initWithData:fileData andWithName:fileName];
+    
+    PFFile *file = [PFFile fileWithName:file1.fileName data:file1.data];
+
+    
 
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 
