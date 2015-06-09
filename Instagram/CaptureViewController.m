@@ -13,7 +13,7 @@
 @interface CaptureViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property UIImage *image;
 @property NSString *videoFilePath;
-@property NSArray *images;
+@property NSMutableArray *images;
 
 @end
 
@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    self.images = [[NSMutableArray alloc]init];
     self.imagePicker = [[UIImagePickerController alloc]init];
     self.imagePicker.delegate  = self;
     self.imagePicker.allowsEditing =YES;
@@ -171,14 +171,13 @@
                     [alertview show];
                     }else{
                     //everything was succesful
-
+//
 //                        for (PFObject *object in self.images) {
 //                        self.images = [NSArray arrayWithObject:object];
 //                            NSLog(@"😜😜😜😜%@😜😜😜😜",object);
 //                        }
-//                        self.images = [NSArray arrayWithObjects:picObject, nil];
-//
-//                        NSLog(@"%@😜😜😜😜",self.images);
+                        [self.images addObject:picObject];
+                        NSLog(@"😜😜😜😜%@😜😜😜😜",self.images);
                     [self reset];
                         }
                             }];
