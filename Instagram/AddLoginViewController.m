@@ -22,8 +22,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    self.navigationItem.hidesBackButton=YES;
-
+    self.navigationItem.hidesBackButton = true;
+//    self.navigationItem.backBarButtonItem.tintColor = [UIColor clearColor];
+;
     
 }
 
@@ -44,6 +45,8 @@
         [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
 
             if (user) {
+
+                NSLog(@"%@",user.username);
 
                 [self.navigationController popToRootViewControllerAnimated:true];
 
