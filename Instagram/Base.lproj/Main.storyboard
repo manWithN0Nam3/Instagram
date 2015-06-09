@@ -36,7 +36,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="f2d-SD-lgy"/>
+                    <navigationItem key="navigationItem" id="f2d-SD-lgy">
+                        <barButtonItem key="rightBarButtonItem" title="logout" id="un4-yF-ged">
+                            <connections>
+                                <action selector="onLogoutButtonPressed:" destination="eyo-ni-Vf3" id="gBE-QJ-aiQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="XcA-Q9-NDV" kind="show" identifier="showLogin" id="nfW-ue-OYI"/>
                     </connections>
