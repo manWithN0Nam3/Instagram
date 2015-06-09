@@ -9,6 +9,8 @@
 #import "CaptureViewController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <Parse/Parse.h>
+#import "PictureUploads.h"
+
 
 @interface CaptureViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property UIImage *image;
@@ -84,6 +86,8 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+
+    NSLog(@"*********%@*********",info);
     //if media is equeal to image
     if ([mediaType isEqual:(NSString *)kUTTypeImage]) {
         //a photo was taken
@@ -118,74 +122,16 @@
 
 
 -(void)uploadPic{
-    //check if its an image or video
-    NSData *fileData;
-    NSString *fileName;
-    NSString *fileType;
+
+
+[PictureUploads UploadImage:self.image andVideoPath:self.videoFilePath completionHandler:^(NSMutableArray *array) {
+    self.images = array;
+                            NSLog(@"😜😜😜😜%@😜😜😜😜",self.images);
 
 
 
-    if (self.image !=nil) {
-        UIImage *newImage = self.image;
-
-        //data is png
-//        fileData = UIImagePNGRepresentation(newImage);
-        fileData = UIImageJPEGRepresentation(newImage, 0.5);
-        fileName = @"image";
-        fileType = @"image";
-    }
-
-    else{
-        //data type is video
-        fileData=[NSData dataWithContentsOfFile:self.videoFilePath];
-        fileName = @"video.mov";
-        fileType = @"video";
-
-    }
-
-    PFFile *file = [PFFile fileWithName:fileName data:fileData];
-
-    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-
-
-
-        if (error) {
-            UIAlertView *alertview = [[UIAlertView alloc]initWithTitle:@"error occured" message:@"please attempt to send ur message again, 😜" delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
-
-            [alertview show];
-        }
-
-        else{
-
-            //file is on parse.com!!!
-
-            PFObject *picObject = [PFObject objectWithClassName:@"PictureUpload"];
-            [picObject setObject:file forKey:@"file"];
-            [picObject setObject:fileType forKey:@"fileType"];
-            [picObject setObject:[[PFUser currentUser]objectId] forKey:@"UserId"];
-            [picObject setObject:[[PFUser currentUser]username] forKey:@"userName"];
-
-             [picObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (error) {
-                    UIAlertView *alertview = [[UIAlertView alloc]initWithTitle:@"error occured" message:@"please attempt  upload again" delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
-                    [alertview show];
-                    }else{
-                    //everything was succesful
-//
-//                        for (PFObject *object in self.images) {
-//                        self.images = [NSArray arrayWithObject:object];
-//                            NSLog(@"😜😜😜😜%@😜😜😜😜",object);
-//                        }
-                        [self.images addObject:picObject];
-                        NSLog(@"😜😜😜😜%@😜😜😜😜",self.images);
-                    [self reset];
-                        }
-                            }];
-
-                        }
-        
-                    }];
-                }
+}];
+}
 
 - (void)reset {
     self.image=nil;
