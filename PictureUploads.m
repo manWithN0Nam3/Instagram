@@ -30,7 +30,6 @@
 
     NSData *fileData;
     NSString *fileName;
-    NSString *fileType;
 
 
 
@@ -41,20 +40,18 @@
         //        fileData = UIImagePNGRepresentation(newImage);
         fileData = UIImageJPEGRepresentation(newImage, 0.5);
         fileName = @"image.jpg";
-        fileType = @"image";
     }
+//
+//    else{
+//        //data type is video
+//        fileData=[NSData dataWithContentsOfFile:videoFilePath];
+//        fileName = @"video.mov";
+//        fileType = @"video";
+//
+//    }
 
-    else{
-        //data type is video
-        fileData=[NSData dataWithContentsOfFile:videoFilePath];
-        fileName = @"video.mov";
-        fileType = @"video";
 
-    }
-
-    File *file1 = [[File alloc]initWithData:fileData andWithName:fileName];
-    
-    PFFile *file = [PFFile fileWithName:file1.fileName data:file1.data];
+    PFFile *file = [PFFile fileWithName:fileName data:fileData];
 
     
 
@@ -72,14 +69,20 @@
 
             //file is on parse.com!!!
 
+            //Make a PFQuery for the class PictureUpload
+
+            //Run the query which will give you back in a block the PFOjects OR PFObject
+
+            //acess the value for key "file" on that instance
+
             PFObject *picObject = [PFObject objectWithClassName:@"PictureUpload"];
             [picObject setObject:file forKey:@"file"];
-            [picObject setObject:fileType forKey:@"fileType"];
             [picObject setObject:[[PFUser currentUser]objectId] forKey:@"UserId"];
             [picObject setObject:[[PFUser currentUser]username] forKey:@"userName"];
 
             [picObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 NSMutableArray *images = [[NSMutableArray alloc]init];
+                NSMutableArray *images2 = [[NSMutableArray alloc]init];
 
                 if (error) {
                     UIAlertView *alertview = [[UIAlertView alloc]initWithTitle:@"error occured" message:@"please attempt  upload again" delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
@@ -87,11 +90,14 @@
                 }else{
                     //everything was succesful
                     [images addObject:picObject];
-                    NSLog(@"😜😜😜😜%@😜😜😜😜",images);
+                    [images2 addObject:file];
+//                    NSLog(@"😜😜😜😜%@😜😜😜😜",images);
+//                    NSLog(@"++++%@++++",images2);
+
 //                    [self reset];
                 }
 
-                complete(images);
+                complete(images2);
 
 
             }];

@@ -49,7 +49,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:true];
-
+    //taking a photo
     if (self.image == nil && [self.videoFilePath length] == 0) {
 
     self.imagePicker = [[UIImagePickerController alloc]init];
@@ -72,6 +72,9 @@
     [self presentViewController:self.imagePicker animated:true completion:nil];
 
     }
+
+    
+
 }
 
 
@@ -127,7 +130,7 @@
 [PictureUploads UploadImage:self.image andVideoPath:self.videoFilePath completionHandler:^(NSMutableArray *array) {
     self.images = array;
  NSLog(@"😜😜😜😜%@😜😜😜😜",self.images);
-
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"Test1" object:self];
     [self reset];
 
 }];
