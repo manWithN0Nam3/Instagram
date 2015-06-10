@@ -114,8 +114,8 @@
 //    cell.backgroundView = [[UIImageView alloc]initWithImage:[self.pics objectAtIndex:indexPath.row]];
 //    cell. = [pictureObject objectForKey:@"userName"];
 
-//    cell.textView.text = [pictureObject objectForKey:@"userName"];
-    cell.textView.text = @"hey there";
+    cell.textView.text = [pictureObject objectForKey:@"userName"];
+//    cell.textView.text = @"hey there";
 
 //    File *file = [pictureObject objectForKey:@"file"];
 
