@@ -31,6 +31,7 @@
     return self;
 }
 
+
 -(void)receiveNotification:(NSNotification *)notification {
     if ([notification.name isEqualToString:@"Test1"]) {
 
@@ -42,10 +43,14 @@
 
 -(void)queryFromParse{
 
+//    if (<#condition#>) {
+//        <#statements#>
+//    }
 
     PFQuery *query = [PFQuery queryWithClassName:@"PictureUpload"];
     // [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser] objectId]];
     [query orderByDescending:@"createdAt"];
+    [query whereKey:@"createdBy" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:@"iu7I9QGjZ7"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -76,12 +81,12 @@
 //    self.usernameLabel.text = [pictureObject objectForKey:@"userName"];
 
 }
--(void)viewDidAppear:(BOOL)animated{
-//self.usernameLabel.text = [pictureObject objectForKey:@"userName"];
-}
+//-(void)viewDidAppear:(BOOL)animated{
+//    [self queryFromParse];
+//}
 -(void)viewWillAppear:(BOOL)animated{
 //
-//self.usernameLabel.text = [pictureObject objectForKey:@"userName"];
+    [self queryFromParse];
 }
 
 - (IBAction)onLogoutButtonPressed:(UIBarButtonItem *)sender {
