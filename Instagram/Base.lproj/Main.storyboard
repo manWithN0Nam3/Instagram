@@ -678,7 +678,7 @@
                                 <rect key="frame" x="0.0" y="284" width="616" height="275"/>
                                 <color key="backgroundColor" red="0.82643022486772488" green="0.82643022486772488" blue="0.82643022486772488" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zvW-LT-WMQ">
-                                    <size key="itemSize" width="164" height="148"/>
+                                    <size key="itemSize" width="145" height="134"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -688,22 +688,29 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="164" height="148"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="145" height="134"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DcN-7K-s5f">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="13" y="8" width="123" height="98"/>
-                                                    </variation>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jhf-js-tb2">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="26" id="jkS-XE-jAZ"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="43" y="104" width="70" height="36"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="jkS-XE-jAZ"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="jkS-XE-jAZ"/>
+                                                        </mask>
                                                     </variation>
                                                 </textView>
                                             </subviews>
@@ -711,16 +718,43 @@
                                         </view>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <rect key="contentStretch" x="0.050000000000000003" y="0.0" width="1" height="1"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="DcN-7K-s5f" secondAttribute="trailing" constant="16" id="Duj-Bt-Yrb"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Jhf-js-tb2" secondAttribute="trailing" constant="51" id="FJy-Vi-mm7"/>
+                                            <constraint firstItem="Jhf-js-tb2" firstAttribute="leading" secondItem="y03-CA-YaS" secondAttribute="leadingMargin" constant="29" id="FMv-BM-qBT"/>
+                                            <constraint firstItem="Jhf-js-tb2" firstAttribute="top" secondItem="DcN-7K-s5f" secondAttribute="bottom" constant="8" symbolic="YES" id="PnM-fD-BPA"/>
+                                            <constraint firstAttribute="bottom" secondItem="Jhf-js-tb2" secondAttribute="bottom" id="cbO-I7-5HV"/>
+                                            <constraint firstItem="DcN-7K-s5f" firstAttribute="leading" secondItem="y03-CA-YaS" secondAttribute="leadingMargin" constant="5" id="dbO-ya-fUJ"/>
+                                            <constraint firstItem="DcN-7K-s5f" firstAttribute="top" secondItem="y03-CA-YaS" secondAttribute="topMargin" id="zqI-6j-5uy"/>
+                                        </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
                                                 <exclude reference="DcN-7K-s5f"/>
                                                 <exclude reference="Jhf-js-tb2"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="Duj-Bt-Yrb"/>
+                                                <exclude reference="dbO-ya-fUJ"/>
+                                                <exclude reference="zqI-6j-5uy"/>
+                                                <exclude reference="FJy-Vi-mm7"/>
+                                                <exclude reference="FMv-BM-qBT"/>
+                                                <exclude reference="PnM-fD-BPA"/>
+                                                <exclude reference="cbO-I7-5HV"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="DcN-7K-s5f"/>
                                                 <include reference="Jhf-js-tb2"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <include reference="Duj-Bt-Yrb"/>
+                                                <include reference="dbO-ya-fUJ"/>
+                                                <include reference="zqI-6j-5uy"/>
+                                                <include reference="FJy-Vi-mm7"/>
+                                                <include reference="FMv-BM-qBT"/>
+                                                <include reference="PnM-fD-BPA"/>
+                                                <include reference="cbO-I7-5HV"/>
                                             </mask>
                                         </variation>
                                         <connections>
