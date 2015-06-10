@@ -40,6 +40,7 @@
 		97C89EE41B2652480034C215 /* AddLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C89EE31B2652480034C215 /* AddLoginViewController.m */; };
 		97C89EE71B2652520034C215 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C89EE61B2652520034C215 /* SignUpViewController.m */; };
 		97C89EEA1B267ED20034C215 /* CaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C89EE91B267ED20034C215 /* CaptureViewController.m */; };
+		BF10185A1B2873C5006CB2CE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1018591B2873C5006CB2CE /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,8 @@
 		97C89EE61B2652520034C215 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		97C89EE81B267ED20034C215 /* CaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureViewController.h; sourceTree = "<group>"; };
 		97C89EE91B267ED20034C215 /* CaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureViewController.m; sourceTree = "<group>"; };
+		BF1018581B2873C5006CB2CE /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		BF1018591B2873C5006CB2CE /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +163,8 @@
 		97C89E861B2633260034C215 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				BF1018581B2873C5006CB2CE /* HomeViewController.h */,
+				BF1018591B2873C5006CB2CE /* HomeViewController.m */,
 				976F78331B27586400A5DF14 /* File.h */,
 				976F78341B27586400A5DF14 /* File.m */,
 				97C89E8B1B2633260034C215 /* AppDelegate.h */,
@@ -349,6 +354,7 @@
 				97C89E8D1B2633260034C215 /* AppDelegate.m in Sources */,
 				97C89E901B2633260034C215 /* Instagram.xcdatamodeld in Sources */,
 				97C89E8A1B2633260034C215 /* main.m in Sources */,
+				BF10185A1B2873C5006CB2CE /* HomeViewController.m in Sources */,
 				97C89EE41B2652480034C215 /* AddLoginViewController.m in Sources */,
 				976F78011B27184100A5DF14 /* PictureUploads.m in Sources */,
 				97C89EEA1B267ED20034C215 /* CaptureViewController.m in Sources */,
