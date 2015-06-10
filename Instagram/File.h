@@ -7,7 +7,6 @@
 //
 
 #import <Parse/Parse.h>
-
 @interface File : PFFile
 
 @property NSString *fileName;
