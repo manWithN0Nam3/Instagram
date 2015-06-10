@@ -149,6 +149,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Lfv-su-fa7" id="1Cu-Y2-456"/>
+                        <outlet property="usernameLabel" destination="UER-Vt-iZS" id="jTA-wU-Rgg"/>
                         <segue destination="XcA-Q9-NDV" kind="show" identifier="showLogin" id="nfW-ue-OYI"/>
                     </connections>
                 </viewController>

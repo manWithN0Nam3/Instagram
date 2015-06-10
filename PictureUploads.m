@@ -30,7 +30,6 @@
 
     NSData *fileData;
     NSString *fileName;
-    NSString *fileType;
 
 
 
@@ -41,7 +40,6 @@
         //        fileData = UIImagePNGRepresentation(newImage);
         fileData = UIImageJPEGRepresentation(newImage, 0.5);
         fileName = @"image.jpg";
-        fileType = @"image";
     }
 //
 //    else{
@@ -52,9 +50,8 @@
 //
 //    }
 
-    File *file1 = [[File alloc]initWithData:fileData andWithName:fileName];
-    
-    PFFile *file = [PFFile fileWithName:file1.fileName data:file1.data];
+
+    PFFile *file = [PFFile fileWithName:fileName data:fileData];
 
     
 
@@ -80,7 +77,6 @@
 
             PFObject *picObject = [PFObject objectWithClassName:@"PictureUpload"];
             [picObject setObject:file forKey:@"file"];
-            [picObject setObject:fileType forKey:@"fileType"];
             [picObject setObject:[[PFUser currentUser]objectId] forKey:@"UserId"];
             [picObject setObject:[[PFUser currentUser]username] forKey:@"userName"];
 
@@ -94,7 +90,7 @@
                 }else{
                     //everything was succesful
                     [images addObject:picObject];
-                    [images2 addObject:file1.data];
+                    [images2 addObject:file];
 //                    NSLog(@"😜😜😜😜%@😜😜😜😜",images);
 //                    NSLog(@"++++%@++++",images2);
 
