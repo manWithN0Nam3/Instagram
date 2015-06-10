@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JaE-5D-Dop">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C2507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JaE-5D-Dop">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -150,6 +149,9 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="41" y="276" width="319" height="267"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="eyo-ni-Vf3" id="dJ7-V1-ZtG"/>
                                     <outlet property="delegate" destination="eyo-ni-Vf3" id="TF2-Q4-2NE"/>
@@ -157,40 +159,6 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Lfv-su-fa7" firstAttribute="bottom" secondItem="g2W-hf-bCB" secondAttribute="top" id="No6-ll-4dE"/>
-                            <constraint firstItem="iRl-TR-Iag" firstAttribute="top" secondItem="s5D-yB-CUr" secondAttribute="bottom" constant="8" symbolic="YES" id="NzP-GD-DDv"/>
-                            <constraint firstItem="UER-Vt-iZS" firstAttribute="top" secondItem="iRl-TR-Iag" secondAttribute="bottom" constant="2" id="Xyg-Eh-1Y1"/>
-                            <constraint firstAttribute="trailing" secondItem="Lfv-su-fa7" secondAttribute="trailing" id="ZKf-A2-aOY"/>
-                            <constraint firstItem="iRl-TR-Iag" firstAttribute="leading" secondItem="eXg-Wl-jXH" secondAttribute="leadingMargin" constant="-10" id="jiX-Kw-03S"/>
-                            <constraint firstItem="UER-Vt-iZS" firstAttribute="leading" secondItem="eXg-Wl-jXH" secondAttribute="leadingMargin" constant="38" id="lxS-bb-ci0"/>
-                            <constraint firstItem="Lfv-su-fa7" firstAttribute="top" secondItem="UER-Vt-iZS" secondAttribute="bottom" constant="93" id="qFY-AK-FN2"/>
-                            <constraint firstItem="Lfv-su-fa7" firstAttribute="leading" secondItem="eXg-Wl-jXH" secondAttribute="leading" id="s5c-NZ-kxw"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="NzP-GD-DDv"/>
-                                <exclude reference="jiX-Kw-03S"/>
-                                <exclude reference="Xyg-Eh-1Y1"/>
-                                <exclude reference="lxS-bb-ci0"/>
-                                <exclude reference="No6-ll-4dE"/>
-                                <exclude reference="ZKf-A2-aOY"/>
-                                <exclude reference="qFY-AK-FN2"/>
-                                <exclude reference="s5c-NZ-kxw"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="NzP-GD-DDv"/>
-                                <include reference="jiX-Kw-03S"/>
-                                <include reference="Xyg-Eh-1Y1"/>
-                                <include reference="lxS-bb-ci0"/>
-                                <include reference="No6-ll-4dE"/>
-                                <include reference="ZKf-A2-aOY"/>
-                                <include reference="qFY-AK-FN2"/>
-                                <include reference="s5c-NZ-kxw"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="f2d-SD-lgy">
                         <barButtonItem key="rightBarButtonItem" title="logout" id="un4-yF-ged">
