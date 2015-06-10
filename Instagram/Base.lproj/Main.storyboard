@@ -44,7 +44,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iRl-TR-Iag">
                                 <rect key="frame" x="6" y="72" width="240" height="128"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Lfv-su-fa7">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Lfv-su-fa7">
                                 <rect key="frame" x="0.0" y="284" width="616" height="275"/>
                                 <color key="backgroundColor" red="0.82643022486772488" green="0.82643022486772488" blue="0.82643022486772488" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zvW-LT-WMQ">
@@ -83,6 +83,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Lfv-su-fa7" id="1Cu-Y2-456"/>
+                        <outlet property="usernameLabel" destination="UER-Vt-iZS" id="jTA-wU-Rgg"/>
                         <segue destination="XcA-Q9-NDV" kind="show" identifier="showLogin" id="nfW-ue-OYI"/>
                     </connections>
                 </viewController>

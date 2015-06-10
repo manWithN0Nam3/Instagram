@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property NSArray *pics;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 
 @property NSArray *pictures;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -71,8 +72,16 @@
         [self performSegueWithIdentifier:@"showLogin" sender:self];
     }
 
-    self.pics = @[[UIImage imageNamed:@"robert"],[UIImage imageNamed:@"orlando"], [UIImage imageNamed:@"manWith"]];
-    
+//    self.pics = @[[UIImage imageNamed:@"robert"],[UIImage imageNamed:@"orlando"], [UIImage imageNamed:@"manWith"]];
+//    self.usernameLabel.text = [pictureObject objectForKey:@"userName"];
+
+}
+-(void)viewDidAppear:(BOOL)animated{
+//self.usernameLabel.text = [pictureObject objectForKey:@"userName"];
+}
+-(void)viewWillAppear:(BOOL)animated{
+//
+//self.usernameLabel.text = [pictureObject objectForKey:@"userName"];
 }
 
 - (IBAction)onLogoutButtonPressed:(UIBarButtonItem *)sender {
