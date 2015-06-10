@@ -41,6 +41,10 @@
 		97C89EE41B2652480034C215 /* AddLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C89EE31B2652480034C215 /* AddLoginViewController.m */; };
 		97C89EE71B2652520034C215 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C89EE61B2652520034C215 /* SignUpViewController.m */; };
 		97C89EEA1B267ED20034C215 /* CaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C89EE91B267ED20034C215 /* CaptureViewController.m */; };
+		BF1018941B28D074006CB2CE /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1018931B28D074006CB2CE /* FeedViewController.m */; };
+		BF1018971B28D389006CB2CE /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1018961B28D389006CB2CE /* DetailViewController.m */; };
+		BF10189A1B28D4E2006CB2CE /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1018991B28D4E2006CB2CE /* UserViewController.m */; };
+		BF10189D1B28D53A006CB2CE /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF10189C1B28D53A006CB2CE /* CommentTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +105,14 @@
 		97C89EE61B2652520034C215 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		97C89EE81B267ED20034C215 /* CaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureViewController.h; sourceTree = "<group>"; };
 		97C89EE91B267ED20034C215 /* CaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureViewController.m; sourceTree = "<group>"; };
+		BF1018921B28D074006CB2CE /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		BF1018931B28D074006CB2CE /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		BF1018951B28D389006CB2CE /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		BF1018961B28D389006CB2CE /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		BF1018981B28D4E2006CB2CE /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		BF1018991B28D4E2006CB2CE /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		BF10189B1B28D53A006CB2CE /* CommentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewController.h; sourceTree = "<group>"; };
+		BF10189C1B28D53A006CB2CE /* CommentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +175,8 @@
 		97C89E861B2633260034C215 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				BF1018921B28D074006CB2CE /* FeedViewController.h */,
+				BF1018931B28D074006CB2CE /* FeedViewController.m */,
 				976F78331B27586400A5DF14 /* File.h */,
 				976F78341B27586400A5DF14 /* File.m */,
 				97C89E8B1B2633260034C215 /* AppDelegate.h */,
@@ -172,6 +186,12 @@
 				97C89EE51B2652520034C215 /* SignUpViewController.h */,
 				97C89EE61B2652520034C215 /* SignUpViewController.m */,
 				97C89E941B2633260034C215 /* Main.storyboard */,
+				BF10189B1B28D53A006CB2CE /* CommentTableViewController.h */,
+				BF10189C1B28D53A006CB2CE /* CommentTableViewController.m */,
+				BF1018981B28D4E2006CB2CE /* UserViewController.h */,
+				BF1018991B28D4E2006CB2CE /* UserViewController.m */,
+				BF1018951B28D389006CB2CE /* DetailViewController.h */,
+				BF1018961B28D389006CB2CE /* DetailViewController.m */,
 				97C89EE81B267ED20034C215 /* CaptureViewController.h */,
 				97C89EE91B267ED20034C215 /* CaptureViewController.m */,
 				97C89EB01B26443A0034C215 /* ProfileViewController.h */,
@@ -358,9 +378,13 @@
 				976F78011B27184100A5DF14 /* PictureUploads.m in Sources */,
 				97C89EEA1B267ED20034C215 /* CaptureViewController.m in Sources */,
 				976F78501B2784C200A5DF14 /* CollectionViewCell.m in Sources */,
+				BF1018941B28D074006CB2CE /* FeedViewController.m in Sources */,
 				97C89EE71B2652520034C215 /* SignUpViewController.m in Sources */,
+				BF10189D1B28D53A006CB2CE /* CommentTableViewController.m in Sources */,
 				97C89EB21B26443A0034C215 /* ProfileViewController.m in Sources */,
 				976F78351B27586400A5DF14 /* File.m in Sources */,
+				BF10189A1B28D4E2006CB2CE /* UserViewController.m in Sources */,
+				BF1018971B28D389006CB2CE /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
