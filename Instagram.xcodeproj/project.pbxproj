@@ -45,6 +45,7 @@
 		BF1018971B28D389006CB2CE /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1018961B28D389006CB2CE /* DetailViewController.m */; };
 		BF10189A1B28D4E2006CB2CE /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1018991B28D4E2006CB2CE /* UserViewController.m */; };
 		BF10189D1B28D53A006CB2CE /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF10189C1B28D53A006CB2CE /* CommentTableViewController.m */; };
+		BF1018AB1B2A0C61006CB2CE /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1018AA1B2A0C61006CB2CE /* FeedTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		BF1018991B28D4E2006CB2CE /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		BF10189B1B28D53A006CB2CE /* CommentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewController.h; sourceTree = "<group>"; };
 		BF10189C1B28D53A006CB2CE /* CommentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewController.m; sourceTree = "<group>"; };
+		BF1018A91B2A0C61006CB2CE /* FeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell.h; sourceTree = "<group>"; };
+		BF1018AA1B2A0C61006CB2CE /* FeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,8 @@
 				97C89E8C1B2633260034C215 /* AppDelegate.m */,
 				97C89EE21B2652480034C215 /* AddLoginViewController.h */,
 				97C89EE31B2652480034C215 /* AddLoginViewController.m */,
+				BF1018A91B2A0C61006CB2CE /* FeedTableViewCell.h */,
+				BF1018AA1B2A0C61006CB2CE /* FeedTableViewCell.m */,
 				97C89EE51B2652520034C215 /* SignUpViewController.h */,
 				97C89EE61B2652520034C215 /* SignUpViewController.m */,
 				BF10189B1B28D53A006CB2CE /* CommentTableViewController.h */,
@@ -381,6 +386,7 @@
 				BF1018941B28D074006CB2CE /* FeedViewController.m in Sources */,
 				97C89EE71B2652520034C215 /* SignUpViewController.m in Sources */,
 				BF10189D1B28D53A006CB2CE /* CommentTableViewController.m in Sources */,
+				BF1018AB1B2A0C61006CB2CE /* FeedTableViewCell.m in Sources */,
 				97C89EB21B26443A0034C215 /* ProfileViewController.m in Sources */,
 				976F78351B27586400A5DF14 /* File.m in Sources */,
 				BF10189A1B28D4E2006CB2CE /* UserViewController.m in Sources */,

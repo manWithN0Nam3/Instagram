@@ -35,7 +35,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
 
-    }else{
+    } else {
 
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 

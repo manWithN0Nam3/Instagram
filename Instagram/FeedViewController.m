@@ -7,19 +7,24 @@
 //
 
 #import "FeedViewController.h"
+#import "FeedTableViewCell.h"
+
 
 @interface FeedViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableViewCell *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property NSArray *pictures;
+
+@property (weak, nonatomic) IBOutlet UITableView *feedTableView;
+
 @end
 
 @implementation FeedViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-
+    [self queryFromParse];
+    NSLog(@"%lu", (unsigned long)self.pictures.count);
 
 }
 
@@ -33,6 +38,9 @@
     return self;
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [self queryFromParse];
+}
 
 -(void)receiveNotification:(NSNotification *)notification {
     if ([notification.name isEqualToString:@"Test1"]) {
@@ -46,11 +54,13 @@
 -(void)queryFromParse{
 
     //    PFRelation *pictureRelation = [self.currentUser relationForKey:@"pictureRelation"];
-
+    PFUser *currentUser = [PFUser currentUser];
     PFQuery* query = [PFQuery queryWithClassName:@"PictureUpload"];
 
 
     [query orderByDescending:@"createdAt"];
+
+    [query whereKey:@"createdBy" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:currentUser.objectId]];
 
     //        [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
 
@@ -66,6 +76,10 @@
 
             NSLog(@"Retrieved %lu messages", (unsigned long)[self.pictures count]);
         }
+
+        [self.feedTableView reloadData];
+
+
     }];
 }
 
@@ -79,7 +93,7 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"feedCell"];
+    FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"feedCell"];
 
     PFObject *pictureObject = [self.pictures objectAtIndex:indexPath.row];
 
@@ -94,7 +108,9 @@
     NSData *data = [file getData];
     UIImage *image = [UIImage imageWithData:data];
 //    cell.imageView.image = image;
-    cell.backgroundView = [[UIImageView alloc]initWithImage:image];
+//    cell.backgroundView = [[UIImageView alloc]initWithImage:image];
+        cell.feedImageView.image = image;
+
 
     return cell;
 
