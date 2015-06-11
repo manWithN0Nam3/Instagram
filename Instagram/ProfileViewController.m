@@ -8,6 +8,7 @@
 #import "File.h"
 #import "ProfileViewController.h"
 #import "CollectionViewCell.h"
+#import "DetailViewController.h"
 @interface ProfileViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -17,7 +18,7 @@
 @property NSArray *pictures;
 @property PFQuery *query;
 @property NSMutableArray *tempArray;
-@property PFObject *object;
+@property PFObject *selectedPost;
 
 @end
 
@@ -119,12 +120,25 @@ PFUser *currentUser = [PFUser currentUser];
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
 
     }else if ([segue.identifier isEqualToString:@"ProfileDetailSegue"]){
+//      [self.cities objectAtIndex:self.tableView.indexPathForSelectedRow.row];
 
-        
-
+        DetailViewController *dvc = segue.destinationViewController;
+        NSIndexPath *indexPath = self.collectionView.indexPathsForSelectedItems[0];
+        dvc.selectedPhotos = [self.pictures objectAtIndex:indexPath.row];
     }
 
 }
+//
+//-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+//
+//
+//    self.selectedPost = [self.pictures objectAtIndex:indexPath.row];
+//        [self performSegueWithIdentifier:@"ProfileDetailSegue" sender:self];
+//
+//
+//}
+
+
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.pictures.count;
@@ -134,15 +148,15 @@ PFUser *currentUser = [PFUser currentUser];
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    PFObject *pictureObject = [self.pictures objectAtIndex:indexPath.row];
+    self.selectedPost = [self.pictures objectAtIndex:indexPath.row];
 
 
 //    cell.backgroundView = [[UIImageView alloc]initWithImage:[self.pics objectAtIndex:indexPath.row]];
 //    cell. = [pictureObject objectForKey:@"userName"];
 
-    cell.textView.text = [pictureObject objectForKey:@"userName"];
+    cell.textView.text = [self.selectedPost objectForKey:@"userName"];
 
-    PFFile *file = [pictureObject objectForKey:@"file"];
+    PFFile *file = [self.selectedPost objectForKey:@"file"];
     NSData *data = [file getData];
     UIImage *image = [UIImage imageWithData:data];
     cell.imageView.image = image;
