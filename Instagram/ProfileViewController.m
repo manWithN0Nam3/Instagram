@@ -44,7 +44,7 @@
 -(void)queryFromParse{
 
     PFQuery *query = [PFQuery queryWithClassName:@"PictureUpload"];
-    [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
+//    [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
 
 
 
