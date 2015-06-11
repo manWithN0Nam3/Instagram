@@ -49,6 +49,7 @@
 //        fileType = @"video";
 //
 //    }
+//    PFRelation *pictureRelation = [self.currentUser relationForKey:@"pictureRelation"];
 
 
     PFFile *file = [PFFile fileWithName:fileName data:fileData];
@@ -67,18 +68,13 @@
 
         else{
 
-            //file is on parse.com!!!
-
-            //Make a PFQuery for the class PictureUpload
-
-            //Run the query which will give you back in a block the PFOjects OR PFObject
-
-            //acess the value for key "file" on that instance
 
             PFObject *picObject = [PFObject objectWithClassName:@"PictureUpload"];
             [picObject setObject:file forKey:@"file"];
-            [picObject setObject:[[PFUser currentUser]objectId] forKey:@"UserId"];
-            [picObject setObject:[[PFUser currentUser]username] forKey:@"userName"];
+//            [picObject setObject:[[PFUser currentUser]objectId] forKey:@"UserId"];
+//            [picObject setObject:[[PFUser currentUser]username] forKey:@"userName"];
+            [picObject setObject:[PFUser currentUser] forKey:@"createdBy"];
+
 
             [picObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 NSMutableArray *images = [[NSMutableArray alloc]init];

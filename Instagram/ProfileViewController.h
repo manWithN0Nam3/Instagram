@@ -10,5 +10,5 @@
 #import <Parse/Parse.h>
 
 @interface ProfileViewController : UIViewController
-
+@property (nonatomic,strong)PFUser *currentUser;
 @end

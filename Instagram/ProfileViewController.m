@@ -15,7 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 
 @property NSArray *pictures;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property PFQuery *query;
+@property NSMutableArray *tempArray;
+@property PFObject *object;
 
 @end
 
@@ -31,6 +33,7 @@
     return self;
 }
 
+
 -(void)receiveNotification:(NSNotification *)notification {
     if ([notification.name isEqualToString:@"Test1"]) {
 
@@ -41,12 +44,18 @@
 }
 
 -(void)queryFromParse{
+PFUser *currentUser = [PFUser currentUser]; 
+//    PFRelation *pictureRelation = [self.currentUser relationForKey:@"pictureRelation"];
+
+    self.query = [PFQuery queryWithClassName:@"PictureUpload"];
 
 
-    PFQuery *query = [PFQuery queryWithClassName:@"PictureUpload"];
-    // [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser] objectId]];
-    [query orderByDescending:@"createdAt"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [self.query orderByDescending:@"createdAt"];
+
+        [self.query whereKey:@"createdBy" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:currentUser.objectId]];
+
+
+    [self.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
@@ -54,39 +63,52 @@
             // We found messages!
             self.pictures = objects;
             [self.collectionView reloadData];
+            NSLog(@"%@", objects);
+
             NSLog(@"Retrieved %lu messages", (unsigned long)[self.pictures count]);
         }
     }];
-    
 
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pictures = [[NSArray alloc]init];
+   self.tempArray = [NSMutableArray new];
 
-    PFUser *currentUser = [PFUser currentUser]; //show current user in console
-    if (currentUser) {
-        NSLog(@"Current user: %@", currentUser.username);
+    self.currentUser = [PFUser currentUser]; //show current user in console
+    if (self.currentUser) {
+        NSLog(@"Current user: %@", self.currentUser.username);
     }
     else {
         [self performSegueWithIdentifier:@"showLogin" sender:self];
     }
 
+
+    self.currentUser = [PFUser currentUser];
 //    self.pics = @[[UIImage imageNamed:@"robert"],[UIImage imageNamed:@"orlando"], [UIImage imageNamed:@"manWith"]];
 //    self.usernameLabel.text = [pictureObject objectForKey:@"userName"];
 
 }
+//-(void)viewDidAppear:(BOOL)animated{
+//    [self queryFromParse];
+//}
+
 -(void)viewDidAppear:(BOOL)animated{
-//self.usernameLabel.text = [pictureObject objectForKey:@"userName"];
+//    self.object = [[PFObject alloc]init];
+
 }
 -(void)viewWillAppear:(BOOL)animated{
-//
-//self.usernameLabel.text = [pictureObject objectForKey:@"userName"];
+//        self.object = [[PFObject alloc]init];
+
+    [self queryFromParse];
 }
 
 - (IBAction)onLogoutButtonPressed:(UIBarButtonItem *)sender {
 
     [PFUser logOut];
+    PFUser *currentUser = [PFUser currentUser];
+
  [self performSegueWithIdentifier:@"showLogin" sender:self];
 }
 
@@ -95,6 +117,10 @@
     if ([segue.identifier isEqualToString:@"showLogin"]) {
 
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+
+    }else if ([segue.identifier isEqualToString:@"ProfileDetailSegue"]){
+
+        
 
     }
 
@@ -114,19 +140,15 @@
 //    cell.backgroundView = [[UIImageView alloc]initWithImage:[self.pics objectAtIndex:indexPath.row]];
 //    cell. = [pictureObject objectForKey:@"userName"];
 
-//    cell.textView.text = [pictureObject objectForKey:@"userName"];
-    cell.textView.text = @"hey there";
-
-//    File *file = [pictureObject objectForKey:@"file"];
-
-//    [[pictureObject objectForKey:@"file"] data]
+    cell.textView.text = [pictureObject objectForKey:@"userName"];
 
     PFFile *file = [pictureObject objectForKey:@"file"];
     NSData *data = [file getData];
-//    cell.imageView.image = [UIImage imageWithData:file.data];
     UIImage *image = [UIImage imageWithData:data];
     cell.imageView.image = image;
 
     return cell;
 }
+
+
 @end
