@@ -43,14 +43,11 @@
 
 -(void)queryFromParse{
 
-//    if (<#condition#>) {
-//        <#statements#>
-//    }
-
     PFQuery *query = [PFQuery queryWithClassName:@"PictureUpload"];
-    // [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser] objectId]];
-    [query orderByDescending:@"createdAt"];
-    [query whereKey:@"createdBy" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:@"iu7I9QGjZ7"]];
+    [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
+
+
+
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -59,15 +56,59 @@
             // We found messages!
             self.pictures = objects;
             [self.collectionView reloadData];
+            NSLog(@"%@", objects);
+
             NSLog(@"Retrieved %lu messages", (unsigned long)[self.pictures count]);
         }
     }];
-    
+
+
+
+
+//    if (currentUser.objectId) {
+//        NSLog(@"Current user: %@", currentUser.username);
+//
+////                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+////            if (error) {
+////                NSLog(@"Error: %@ %@", error, [error userInfo]);
+////            }
+////            else {
+////                // We found messages!
+////                self.pictures = objects;
+////                [self.collectionView reloadData];
+////                NSLog(@"Retrieved %lu messages", (unsigned long)self.pictures.count);
+////            }
+////        }];
+////        
+//
+//    }
+//    else {
+//        [self performSegueWithIdentifier:@"showLogin" sender:self];
+//    }
+
+
+//    PFQuery *query = [PFQuery queryWithClassName:@"PictureUpload"];
+//    // [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser] objectId]];
+//    [query orderByDescending:@"createdAt"];
+//    [query whereKey:@"createdBy" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:@"iu7I9QGjZ7"]];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (error) {
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//        else {
+//            // We found messages!
+//            self.pictures = objects;
+//            [self.collectionView reloadData];
+//            NSLog(@"Retrieved %lu messages", (unsigned long)[self.pictures count]);
+//        }
+//    }];
+//    
 
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pictures = [[NSArray alloc]init];
 
     PFUser *currentUser = [PFUser currentUser]; //show current user in console
     if (currentUser) {
@@ -120,15 +161,9 @@
 //    cell. = [pictureObject objectForKey:@"userName"];
 
     cell.textView.text = [pictureObject objectForKey:@"userName"];
-//    cell.textView.text = @"hey there";
-
-//    File *file = [pictureObject objectForKey:@"file"];
-
-//    [[pictureObject objectForKey:@"file"] data]
 
     PFFile *file = [pictureObject objectForKey:@"file"];
     NSData *data = [file getData];
-//    cell.imageView.image = [UIImage imageWithData:file.data];
     UIImage *image = [UIImage imageWithData:data];
     cell.imageView.image = image;
 

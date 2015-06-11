@@ -77,8 +77,8 @@
 
             PFObject *picObject = [PFObject objectWithClassName:@"PictureUpload"];
             [picObject setObject:file forKey:@"file"];
-//            [picObject setObject:[[PFUser currentUser]objectId] forKey:@"UserId"];
-//            [picObject setObject:[[PFUser currentUser]username] forKey:@"userName"];
+            [picObject setObject:[[PFUser currentUser]objectId] forKey:@"UserId"];
+            [picObject setObject:[[PFUser currentUser]username] forKey:@"userName"];
             [picObject setObject:[PFUser currentUser] forKey:@"createdBy"];
 
 
