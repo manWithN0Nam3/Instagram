@@ -15,7 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 
 @property NSArray *pictures;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property PFQuery *query;
+@property NSMutableArray *tempArray;
+@property PFObject *object;
 
 @end
 
@@ -42,13 +44,19 @@
 }
 
 -(void)queryFromParse{
+PFUser *currentUser = [PFUser currentUser]; 
+//    PFRelation *pictureRelation = [self.currentUser relationForKey:@"pictureRelation"];
 
-    PFQuery *query = [PFQuery queryWithClassName:@"PictureUpload"];
-//    [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
+    self.query = [PFQuery queryWithClassName:@"PictureUpload"];
 
-    [query orderByDescending:@"createdAt"];
 
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [self.query orderByDescending:@"createdAt"];
+
+        [self.query whereKey:@"createdBy" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:currentUser.objectId]];
+//    [self.query whereKey:@"userName" equalTo:currentUser.username];
+//    NSLog(@"%@",[self.query whereKeyExists:@"userName"]);
+
+    [self.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
@@ -62,7 +70,16 @@
         }
     }];
 
+//    [self.query getObjectInBackgroundWithId:@"xWMyZ4YEGZ" block:^(PFObject *gameScore, NSError *error) {
+//        // Do something with the returned PFObject in the gameScore variable.
+//        NSLog(@"%@", gameScore);
+//    }];
 
+
+//
+//    if (self.currentUser.objectId == [pictureObject objectForKey:@"userID"]) {
+//
+//    }
 
 
 //    if (currentUser.objectId) {
@@ -109,15 +126,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pictures = [[NSArray alloc]init];
+   self.tempArray = [NSMutableArray new];
 
-    PFUser *currentUser = [PFUser currentUser]; //show current user in console
-    if (currentUser) {
-        NSLog(@"Current user: %@", currentUser.username);
+    self.currentUser = [PFUser currentUser]; //show current user in console
+    if (self.currentUser) {
+        NSLog(@"Current user: %@", self.currentUser.username);
     }
     else {
         [self performSegueWithIdentifier:@"showLogin" sender:self];
     }
 
+
+    self.currentUser = [PFUser currentUser];
 //    self.pics = @[[UIImage imageNamed:@"robert"],[UIImage imageNamed:@"orlando"], [UIImage imageNamed:@"manWith"]];
 //    self.usernameLabel.text = [pictureObject objectForKey:@"userName"];
 
@@ -125,14 +145,22 @@
 //-(void)viewDidAppear:(BOOL)animated{
 //    [self queryFromParse];
 //}
+
+-(void)viewDidAppear:(BOOL)animated{
+//    self.object = [[PFObject alloc]init];
+
+}
 -(void)viewWillAppear:(BOOL)animated{
-//
+//        self.object = [[PFObject alloc]init];
+
     [self queryFromParse];
 }
 
 - (IBAction)onLogoutButtonPressed:(UIBarButtonItem *)sender {
 
     [PFUser logOut];
+    PFUser *currentUser = [PFUser currentUser];
+
  [self performSegueWithIdentifier:@"showLogin" sender:self];
 }
 
