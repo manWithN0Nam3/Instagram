@@ -53,8 +53,7 @@ PFUser *currentUser = [PFUser currentUser];
     [self.query orderByDescending:@"createdAt"];
 
         [self.query whereKey:@"createdBy" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:currentUser.objectId]];
-//    [self.query whereKey:@"userName" equalTo:currentUser.username];
-//    NSLog(@"%@",[self.query whereKeyExists:@"userName"]);
+
 
     [self.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
@@ -69,57 +68,6 @@ PFUser *currentUser = [PFUser currentUser];
             NSLog(@"Retrieved %lu messages", (unsigned long)[self.pictures count]);
         }
     }];
-
-//    [self.query getObjectInBackgroundWithId:@"xWMyZ4YEGZ" block:^(PFObject *gameScore, NSError *error) {
-//        // Do something with the returned PFObject in the gameScore variable.
-//        NSLog(@"%@", gameScore);
-//    }];
-
-
-//
-//    if (self.currentUser.objectId == [pictureObject objectForKey:@"userID"]) {
-//
-//    }
-
-
-//    if (currentUser.objectId) {
-//        NSLog(@"Current user: %@", currentUser.username);
-//
-////                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-////            if (error) {
-////                NSLog(@"Error: %@ %@", error, [error userInfo]);
-////            }
-////            else {
-////                // We found messages!
-////                self.pictures = objects;
-////                [self.collectionView reloadData];
-////                NSLog(@"Retrieved %lu messages", (unsigned long)self.pictures.count);
-////            }
-////        }];
-////        
-//
-//    }
-//    else {
-//        [self performSegueWithIdentifier:@"showLogin" sender:self];
-//    }
-
-
-//    PFQuery *query = [PFQuery queryWithClassName:@"PictureUpload"];
-//    // [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser] objectId]];
-//    [query orderByDescending:@"createdAt"];
-//    [query whereKey:@"createdBy" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:@"iu7I9QGjZ7"]];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (error) {
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//        }
-//        else {
-//            // We found messages!
-//            self.pictures = objects;
-//            [self.collectionView reloadData];
-//            NSLog(@"Retrieved %lu messages", (unsigned long)[self.pictures count]);
-//        }
-//    }];
-//    
 
 }
 
@@ -170,6 +118,10 @@ PFUser *currentUser = [PFUser currentUser];
 
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
 
+    }else if ([segue.identifier isEqualToString:@"ProfileDetailSegue"]){
+
+        
+
     }
 
 }
@@ -197,4 +149,6 @@ PFUser *currentUser = [PFUser currentUser];
 
     return cell;
 }
+
+
 @end
