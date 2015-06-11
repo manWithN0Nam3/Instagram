@@ -46,6 +46,7 @@
 		BF10189A1B28D4E2006CB2CE /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1018991B28D4E2006CB2CE /* UserViewController.m */; };
 		BF10189D1B28D53A006CB2CE /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF10189C1B28D53A006CB2CE /* CommentTableViewController.m */; };
 		BF1018AB1B2A0C61006CB2CE /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1018AA1B2A0C61006CB2CE /* FeedTableViewCell.m */; };
+		BF1018AE1B2A2B2E006CB2CE /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1018AD1B2A2B2E006CB2CE /* ActivityViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,8 @@
 		BF10189C1B28D53A006CB2CE /* CommentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewController.m; sourceTree = "<group>"; };
 		BF1018A91B2A0C61006CB2CE /* FeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell.h; sourceTree = "<group>"; };
 		BF1018AA1B2A0C61006CB2CE /* FeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell.m; sourceTree = "<group>"; };
+		BF1018AC1B2A2B2E006CB2CE /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		BF1018AD1B2A2B2E006CB2CE /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +204,8 @@
 				97C89EB01B26443A0034C215 /* ProfileViewController.h */,
 				97C89EB11B26443A0034C215 /* ProfileViewController.m */,
 				97C89E941B2633260034C215 /* Main.storyboard */,
+				BF1018AC1B2A2B2E006CB2CE /* ActivityViewController.h */,
+				BF1018AD1B2A2B2E006CB2CE /* ActivityViewController.m */,
 				976F784E1B2784C200A5DF14 /* CollectionViewCell.h */,
 				976F784F1B2784C200A5DF14 /* CollectionViewCell.m */,
 				976F77FF1B27184100A5DF14 /* PictureUploads.h */,
@@ -391,6 +396,7 @@
 				976F78351B27586400A5DF14 /* File.m in Sources */,
 				BF10189A1B28D4E2006CB2CE /* UserViewController.m in Sources */,
 				BF1018971B28D389006CB2CE /* DetailViewController.m in Sources */,
+				BF1018AE1B2A2B2E006CB2CE /* ActivityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
