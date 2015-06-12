@@ -48,6 +48,7 @@
 		BF10189D1B28D53A006CB2CE /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF10189C1B28D53A006CB2CE /* CommentTableViewController.m */; };
 		BF1018AB1B2A0C61006CB2CE /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1018AA1B2A0C61006CB2CE /* FeedTableViewCell.m */; };
 		BF1018AE1B2A2B2E006CB2CE /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1018AD1B2A2B2E006CB2CE /* ActivityViewController.m */; };
+		BFB4400C1B2B42C400EB4C98 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB4400B1B2B42C400EB4C98 /* SearchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,8 @@
 		BF1018AA1B2A0C61006CB2CE /* FeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell.m; sourceTree = "<group>"; };
 		BF1018AC1B2A2B2E006CB2CE /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
 		BF1018AD1B2A2B2E006CB2CE /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		BFB4400A1B2B42C400EB4C98 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		BFB4400B1B2B42C400EB4C98 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +210,8 @@
 				97C89EB01B26443A0034C215 /* ProfileViewController.h */,
 				97C89EB11B26443A0034C215 /* ProfileViewController.m */,
 				97C89E941B2633260034C215 /* Main.storyboard */,
+				BFB4400A1B2B42C400EB4C98 /* SearchViewController.h */,
+				BFB4400B1B2B42C400EB4C98 /* SearchViewController.m */,
 				97FD799E1B2B1451004AB67A /* DeleteButton.h */,
 				97FD799F1B2B1451004AB67A /* DeleteButton.m */,
 				BF1018AC1B2A2B2E006CB2CE /* ActivityViewController.h */,
@@ -390,6 +395,7 @@
 				97C89E901B2633260034C215 /* Instagram.xcdatamodeld in Sources */,
 				97C89E8A1B2633260034C215 /* main.m in Sources */,
 				97C89EE41B2652480034C215 /* AddLoginViewController.m in Sources */,
+				BFB4400C1B2B42C400EB4C98 /* SearchViewController.m in Sources */,
 				976F78011B27184100A5DF14 /* PictureUploads.m in Sources */,
 				97C89EEA1B267ED20034C215 /* CaptureViewController.m in Sources */,
 				976F78501B2784C200A5DF14 /* CollectionViewCell.m in Sources */,

@@ -1,0 +1,104 @@
+//
+//  SearchViewController.m
+//  Instagram
+//
+//  Created by Tom Carmona on 6/12/15.
+//  Copyright (c) 2015 madApperz. All rights reserved.
+//
+
+#import "SearchViewController.h"
+#import <Parse/Parse.h>
+
+@interface SearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property BOOL isFiltered;
+@property NSMutableArray *filteredUsers;
+@property NSArray *users;
+
+@end
+
+@implementation SearchViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    self.tableView.delegate = self;
+    self.searchBar.delegate = self;
+    
+    [self queryFromParse];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    [self queryFromParse];
+}
+
+-(void)queryFromParse {
+    PFUser *currentUser = [PFUser currentUser];
+    PFQuery* query = [PFQuery queryWithClassName:@"PictureUpload"];
+
+
+    [query orderByDescending:@"createdAt"];
+
+    [query whereKey:@"createdBy" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:currentUser.objectId]];
+
+    //        [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        else {
+            // We found messages!
+            self.users = objects;
+            //            [self.collectionView reloadData];
+            NSLog(@"%@", objects);
+
+            NSLog(@"Retrieved %lu messages", (unsigned long)[self.users count]);
+        }
+
+        [self.tableView reloadData];
+        
+        
+    }];
+
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+
+    if (searchText.length == 0) {
+        self.isFiltered = NO;
+
+    } else {
+        self.isFiltered = YES;
+        self.filteredUsers = [[NSMutableArray alloc]init];
+
+        for (PFObject *object in self.users) {
+            NSLog(@"%@ *****-----------", object);
+        }
+    }
+
+
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+
+
+    [self.searchBar resignFirstResponder];
+
+
+
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCellID"];
+    return cell;
+}
+
+
+@end

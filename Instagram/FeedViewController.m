@@ -33,16 +33,16 @@
 
 
 }
-
-
--(id)initWithCoder:(NSCoder *)aDecoder{
-
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveNotification:) name:@"Test1" object:nil];
-    }
-    return self;
-}
+//
+//
+//-(id)initWithCoder:(NSCoder *)aDecoder{
+//
+//    self = [super initWithCoder:aDecoder];
+//    if (self) {
+//        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveNotification:) name:@"Test1" object:nil];
+//    }
+//    return self;
+//}
 
 -(void)viewDidAppear:(BOOL)animated {
     [self queryFromParse];
@@ -50,14 +50,14 @@
 
 }
 
--(void)receiveNotification:(NSNotification *)notification {
-    if ([notification.name isEqualToString:@"Test1"]) {
-
-        [self queryFromParse];
-
-    }
-
-}
+//-(void)receiveNotification:(NSNotification *)notification {
+//    if ([notification.name isEqualToString:@"Test1"]) {
+//
+//        [self queryFromParse];
+//
+//    }
+//
+//}
 
 -(void)queryFromParse{
 

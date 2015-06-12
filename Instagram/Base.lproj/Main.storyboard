@@ -991,10 +991,10 @@
             </objects>
             <point key="canvasLocation" x="1131" y="1020"/>
         </scene>
-        <!--View Controller-->
+        <!--Search Ain't-stagram-->
         <scene sceneID="3Fu-cZ-1aD">
             <objects>
-                <viewController id="bTN-UX-Dk1" sceneMemberID="viewController">
+                <viewController id="bTN-UX-Dk1" customClass="SearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="08G-V3-do3"/>
                         <viewControllerLayoutGuide type="bottom" id="Bce-8b-VfH"/>
@@ -1002,9 +1002,54 @@
                     <view key="view" contentMode="scaleToFill" id="WmM-IO-Eit">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search Who You Ain't" translatesAutoresizingMaskIntoConstraints="NO" id="k8A-EJ-Po7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="44"/>
+                                </variation>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TsN-2c-WtC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCellID" id="R6g-cD-mmM">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R6g-cD-mmM" id="PzA-ZC-viA">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="108" width="400" height="443"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="bTN-UX-Dk1" id="2uY-jK-D9l"/>
+                                    <outlet property="delegate" destination="bTN-UX-Dk1" id="djB-E7-OsZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="k8A-EJ-Po7"/>
+                                <exclude reference="TsN-2c-WtC"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="k8A-EJ-Po7"/>
+                                <include reference="TsN-2c-WtC"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="jHQ-HD-S1R"/>
+                    <navigationItem key="navigationItem" title="Search Ain't-stagram" id="jHQ-HD-S1R"/>
+                    <connections>
+                        <outlet property="searchBar" destination="k8A-EJ-Po7" id="tMZ-ao-tZ7"/>
+                        <outlet property="tableView" destination="TsN-2c-WtC" id="2AG-Hc-VPm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZV-JM-2zh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
