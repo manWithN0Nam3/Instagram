@@ -59,6 +59,12 @@
     }];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    
+
+}
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.activities.count;
@@ -71,7 +77,7 @@
 //    PFFile *file = [activityObject objectForKey:@"userName"];
 //    NSData *data = [file getData];
 //    NSString *userString = [NSString stringWithFormat:@"%@", data];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ has posted a photo to Pimpstagram", [activityObject objectForKey:@"userName"]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ has posted a photo!", [activityObject objectForKey:@"userName"]];
     return cell;
 }
 

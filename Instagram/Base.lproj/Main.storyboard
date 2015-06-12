@@ -996,6 +996,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xnv-Zf-LxK" id="E5Y-c3-fEn">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="knV-MA-Iz6" kind="show" identifier="ActivityDetailSegue" id="oTq-PN-cwp"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -1257,8 +1260,8 @@
         <image name="share" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="oTq-PN-cwp"/>
         <segue reference="jJb-bQ-yER"/>
         <segue reference="yOR-1w-vfU"/>
-        <segue reference="lTH-4q-ryk"/>
     </inferredMetricsTieBreakers>
 </document>
