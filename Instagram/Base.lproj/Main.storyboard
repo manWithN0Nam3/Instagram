@@ -1246,7 +1246,7 @@
         <image name="share" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="oTq-PN-cwp"/>
         <segue reference="yOR-1w-vfU"/>
-        <segue reference="OO9-Sw-J5J"/>
     </inferredMetricsTieBreakers>
 </document>

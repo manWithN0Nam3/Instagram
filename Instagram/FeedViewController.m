@@ -67,8 +67,8 @@
 
 
     [query orderByDescending:@"createdAt"];
-
-    [query whereKey:@"createdBy" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:currentUser.objectId]];
+//
+//    [query whereKey:@"createdBy" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:currentUser.objectId]];
 
     //        [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
 

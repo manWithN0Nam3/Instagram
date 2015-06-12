@@ -36,32 +36,32 @@
 
 -(void)queryFromParse {
     PFUser *currentUser = [PFUser currentUser];
-    PFQuery* query = [PFQuery queryWithClassName:@"PictureUpload"];
+    PFQuery* query = [PFUser query];
+    self.users = [query findObjects];
 
 
-    [query orderByDescending:@"createdAt"];
+//    [query orderByDescending:@"createdAt"];
 
-    [query whereKey:@"createdBy" equalTo:[PFObject objectWithoutDataWithClassName:@"_User" objectId:currentUser.objectId]];
 
     //        [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
 
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-        else {
-            // We found messages!
-            self.users = objects;
-            //            [self.collectionView reloadData];
-            NSLog(@"%@", objects);
-
-            NSLog(@"Retrieved %lu messages", (unsigned long)[self.users count]);
-        }
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (error) {
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//        else {
+//            // We found messages!
+//            self.users = objects;
+//            //            [self.collectionView reloadData];
+//            NSLog(@"%@", objects);
+//
+//            NSLog(@"Retrieved %lu messages", (unsigned long)[self.users count]);
+//        }
 
         [self.tableView reloadData];
         
         
-    }];
+//    }];
 
 }
 
@@ -76,9 +76,16 @@
 
         for (PFObject *object in self.users) {
             NSLog(@"%@ *****-----------", object);
+            NSString *usersString = [object objectForKey:@"username"];
+            NSRange usersRange = [usersString rangeOfString:searchText options:NSCaseInsensitiveSearch];
+
+            if (usersRange.location != NSNotFound) {
+                [self.filteredUsers addObject:object];
+            }
         }
     }
 
+    [self.tableView reloadData];
 
 }
 
@@ -92,11 +99,16 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.filteredUsers.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCellID"];
+
+    PFObject *object = [self.filteredUsers objectAtIndex:indexPath.row];
+    cell.textLabel.text = [object objectForKey:@"username"];
+
     return cell;
 }
 
