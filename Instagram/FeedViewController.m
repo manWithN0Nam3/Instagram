@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *feedTableView;
 
+
+
 @end
 
 @implementation FeedViewController
@@ -25,6 +27,9 @@
     [super viewDidLoad];
     [self queryFromParse];
     NSLog(@"%lu", (unsigned long)self.pictures.count);
+
+
+
 
 }
 
@@ -40,6 +45,8 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [self queryFromParse];
+
+
 }
 
 -(void)receiveNotification:(NSNotification *)notification {
@@ -96,7 +103,7 @@
     FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"feedCell"];
 
     PFObject *pictureObject = [self.pictures objectAtIndex:indexPath.row];
-
+    
 
     //    cell.backgroundView = [[UIImageView alloc]initWithImage:[self.pics objectAtIndex:indexPath.row]];
     //    cell. = [pictureObject objectForKey:@"userName"];
@@ -109,7 +116,8 @@
     UIImage *image = [UIImage imageWithData:data];
 //    cell.imageView.image = image;
 //    cell.backgroundView = [[UIImageView alloc]initWithImage:image];
-        cell.feedImageView.image = image;
+    cell.feedImageView.image = image;
+    cell.userNameLabel.text = [pictureObject objectForKey:@"userName"];
 
 
     return cell;

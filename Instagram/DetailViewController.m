@@ -13,6 +13,9 @@
 @property (weak, nonatomic) IBOutlet DeleteButton *deleteButton;
 @property PFFile *file;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+
 @end
 
 @implementation DetailViewController
@@ -26,6 +29,8 @@
 
 
     self.imageView.image = image;
+
+    self.userNameLabel.text = [self.selectedPhotos objectForKey:@"userName"];    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -36,6 +41,10 @@
 
 
     self.imageView.image = image;
+
+    self.userNameLabel.text = [self.selectedPhotos objectForKey:@"userName"];
+
+
 
 
 }
