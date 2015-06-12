@@ -130,11 +130,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
-    if ([segue.identifier isEqualToString:@"showLogin"]) {
-
-        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
-
-    }else if ([segue.identifier isEqualToString:@"FeedDetailSegue"]){
+    if([segue.identifier isEqualToString:@"FeedDetailSegue"]){
         //      [self.cities objectAtIndex:self.tableView.indexPathForSelectedRow.row];
 
 

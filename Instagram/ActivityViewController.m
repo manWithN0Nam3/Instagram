@@ -7,6 +7,7 @@
 //
 
 #import "ActivityViewController.h"
+#import "DetailViewController.h"
 
 @interface ActivityViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -60,6 +61,16 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    if([segue.identifier isEqualToString:@"ActivityDetailSegue"]){
+        //      [self.cities objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+
+
+        DetailViewController *dvc = segue.destinationViewController;
+        //        NSIndexPath *indexPath = self.tableView.indexPathsForSelectedItems[0];
+        dvc.selectedPhotos = [self.activities objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        
+    }
 
     
 

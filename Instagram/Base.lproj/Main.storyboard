@@ -447,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wca-Z4-B0f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1498.5" y="-795"/>
+            <point key="canvasLocation" x="-178.5" y="-907"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="cWL-fx-OYP">
@@ -1212,7 +1212,7 @@
         <image name="share" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mHs-2u-mTW"/>
-        <segue reference="yOR-1w-vfU"/>
+        <segue reference="oTq-PN-cwp"/>
+        <segue reference="6pN-Z0-G9x"/>
     </inferredMetricsTieBreakers>
 </document>
