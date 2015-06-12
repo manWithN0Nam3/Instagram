@@ -20,17 +20,58 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.activities = [[NSArray alloc]init];
+//    self.activities = [[NSArray alloc]init];
+    [self queryFromParse];
+
 
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [self queryFromParse];
+}
+
+-(void)queryFromParse{
+
+    //    PFRelation *pictureRelation = [self.currentUser relationForKey:@"pictureRelation"];
+    PFQuery* query = [PFQuery queryWithClassName:@"PictureUpload"];
+
+
+    [query orderByDescending:@"createdAt"];
+
+    //        [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        else {
+            // We found messages!
+            self.activities = objects;
+            //            [self.collectionView reloadData];
+            NSLog(@"%@", objects);
+
+            NSLog(@"Retrieved %lu messages", (unsigned long)[self.activities count]);
+        }
+
+        [self.tableView reloadData];
+        
+        
+    }];
+}
+
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.activities.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCellID"];
-    cell.textLabel.text = [NSString stringWithFormat:@"tomcarmona has posted a photo to Pimpstagram"];
+    PFObject *activityObject = [self.activities objectAtIndex:indexPath.row];
+//    PFFile *file = [activityObject objectForKey:@"file"];
+//    PFFile *file = [activityObject objectForKey:@"userName"];
+//    NSData *data = [file getData];
+//    NSString *userString = [NSString stringWithFormat:@"%@", data];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ has posted a photo to Pimpstagram", [activityObject objectForKey:@"userName"]];
     return cell;
 }
 
