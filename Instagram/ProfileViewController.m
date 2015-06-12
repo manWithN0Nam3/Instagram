@@ -95,7 +95,11 @@ PFUser *currentUser = [PFUser currentUser];
 -(void)viewWillAppear:(BOOL)animated{
 
     [self queryFromParse];
+
+    self.currentUser = [PFUser currentUser];
+
     self.usernameLabel.text = self.currentUser.username;
+
 
 }
 

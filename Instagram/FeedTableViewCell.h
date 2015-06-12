@@ -10,6 +10,7 @@
 
 @interface FeedTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *feedImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 //
 //@property (weak, nonatomic) IBOutlet UIButton *commentsButton;
 //
