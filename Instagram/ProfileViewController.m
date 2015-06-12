@@ -87,23 +87,18 @@ PFUser *currentUser = [PFUser currentUser];
 
 
     self.currentUser = [PFUser currentUser];
-//    self.pics = @[[UIImage imageNamed:@"robert"],[UIImage imageNamed:@"orlando"], [UIImage imageNamed:@"manWith"]];
-//    self.usernameLabel.text = [pictureObject objectForKey:@"userName"];
 
+    self.usernameLabel.text = self.currentUser.username;
 }
-//-(void)viewDidAppear:(BOOL)animated{
-//    [self queryFromParse];
-//}
 
--(void)viewDidAppear:(BOOL)animated{
-//    self.object = [[PFObject alloc]init];
 
-}
 -(void)viewWillAppear:(BOOL)animated{
-//        self.object = [[PFObject alloc]init];
 
     [self queryFromParse];
+    self.usernameLabel.text = self.currentUser.username;
+
 }
+
 
 - (IBAction)onLogoutButtonPressed:(UIBarButtonItem *)sender {
 
@@ -125,19 +120,10 @@ PFUser *currentUser = [PFUser currentUser];
         DetailViewController *dvc = segue.destinationViewController;
         NSIndexPath *indexPath = self.collectionView.indexPathsForSelectedItems[0];
         dvc.selectedPhotos = [self.pictures objectAtIndex:indexPath.row];
+
     }
 
 }
-//
-//-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-//
-//
-//    self.selectedPost = [self.pictures objectAtIndex:indexPath.row];
-//        [self performSegueWithIdentifier:@"ProfileDetailSegue" sender:self];
-//
-//
-//}
-
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -150,9 +136,6 @@ PFUser *currentUser = [PFUser currentUser];
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     self.selectedPost = [self.pictures objectAtIndex:indexPath.row];
 
-
-//    cell.backgroundView = [[UIImageView alloc]initWithImage:[self.pics objectAtIndex:indexPath.row]];
-//    cell. = [pictureObject objectForKey:@"userName"];
 
     cell.textView.text = [self.selectedPost objectForKey:@"userName"];
 

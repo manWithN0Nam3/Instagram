@@ -5,12 +5,13 @@
 //  Created by Tom Carmona on 6/10/15.
 //  Copyright (c) 2015 madApperz. All rights reserved.
 //
-
+#import "DeleteButton.h"
 #import "DetailViewController.h"
 
-@interface DetailViewController ()
+@interface DetailViewController ()<DeleteButtonDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
+@property (weak, nonatomic) IBOutlet DeleteButton *deleteButton;
+@property PFFile *file;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @end
 
@@ -18,9 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    PFFile *file = [self.selectedPhotos objectForKey:@"file"];
-    NSData *data = [file getData];
+    self.deleteButton.delegate = self;
+    self.file= [self.selectedPhotos objectForKey:@"file"];
+    NSData *data = [self.file getData];
     UIImage *image = [UIImage imageWithData:data];
 
 
@@ -29,12 +30,46 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
-    PFFile *file = [self.selectedPhotos objectForKey:@"file"];
-    NSData *data = [file getData];
+    self.file = [self.selectedPhotos objectForKey:@"file"];
+    NSData *data = [self.file getData];
     UIImage *image = [UIImage imageWithData:data];
 
 
     self.imageView.image = image;
+
+
+}
+
+
+-(void)DeleteButtonDelegate:(UIButton *)button{
+
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"delete" message:nil preferredStyle:UIAlertControllerStyleAlert];
+
+    //cancels alert controller
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    //
+    //saves what you wrote
+    UIAlertAction *deleteAction =  [UIAlertAction actionWithTitle:@"DELETE FOREVER!!!" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+
+
+        [self.selectedPhotos deleteInBackground];
+
+
+
+    }];
+
+    //add cancelAction variable to alertController
+    [alertController addAction:cancelAction];
+
+
+    [alertController addAction:deleteAction];
+
+
+    //activates alertcontroler
+    [self presentViewController:alertController animated:true completion:nil];
+
+
 
 
 }
