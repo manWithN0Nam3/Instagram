@@ -8,6 +8,7 @@
 
 #import "FeedViewController.h"
 #import "FeedTableViewCell.h"
+#import "DetailViewController.h"
 
 
 @interface FeedViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -124,6 +125,27 @@
 
 
 }
+
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    if ([segue.identifier isEqualToString:@"showLogin"]) {
+
+        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+
+    }else if ([segue.identifier isEqualToString:@"FeedDetailSegue"]){
+        //      [self.cities objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+
+
+        DetailViewController *dvc = segue.destinationViewController;
+//        NSIndexPath *indexPath = self.tableView.indexPathsForSelectedItems[0];
+        dvc.selectedPhotos = [self.pictures objectAtIndex:self.feedTableView.indexPathForSelectedRow.row];
+
+    }
+    
+}
+
 
 
 
