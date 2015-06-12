@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface DetailViewController : UIViewController
+@property (nonatomic, strong) PFObject *selectedPhotos;
 
 @end

@@ -5,33 +5,75 @@
 //  Created by Tom Carmona on 6/10/15.
 //  Copyright (c) 2015 madApperz. All rights reserved.
 //
-
+#import "DeleteButton.h"
 #import "DetailViewController.h"
 
-@interface DetailViewController ()
-
+@interface DetailViewController ()<DeleteButtonDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet DeleteButton *deleteButton;
+@property PFFile *file;
+@property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @end
 
 @implementation DetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.deleteButton.delegate = self;
+    self.file= [self.selectedPhotos objectForKey:@"file"];
+    NSData *data = [self.file getData];
+    UIImage *image = [UIImage imageWithData:data];
+
+
+    self.imageView.image = image;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewWillAppear:(BOOL)animated{
+
+    self.file = [self.selectedPhotos objectForKey:@"file"];
+    NSData *data = [self.file getData];
+    UIImage *image = [UIImage imageWithData:data];
+
+
+    self.imageView.image = image;
+
+
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)DeleteButtonDelegate:(UIButton *)button{
+
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"delete" message:nil preferredStyle:UIAlertControllerStyleAlert];
+
+    //cancels alert controller
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    //
+    //saves what you wrote
+    UIAlertAction *deleteAction =  [UIAlertAction actionWithTitle:@"DELETE FOREVER!!!" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+
+
+        [self.selectedPhotos deleteInBackground];
+
+
+
+    }];
+
+    //add cancelAction variable to alertController
+    [alertController addAction:cancelAction];
+
+
+    [alertController addAction:deleteAction];
+
+
+    //activates alertcontroler
+    [self presentViewController:alertController animated:true completion:nil];
+
+
+
+
 }
-*/
+
+
 
 @end

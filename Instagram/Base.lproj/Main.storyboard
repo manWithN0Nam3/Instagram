@@ -387,6 +387,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a6a-b7-zUZ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50x-gZ-ANO" customClass="DeleteButton">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="266" y="117" width="43" height="30"/>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -425,6 +434,7 @@
                                 <exclude reference="Xmu-A3-ar0"/>
                                 <exclude reference="pfr-u1-vee"/>
                                 <exclude reference="a6a-b7-zUZ"/>
+                                <exclude reference="50x-gZ-ANO"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="ROT-Dy-ACP"/>
@@ -463,6 +473,7 @@
                                 <include reference="Xmu-A3-ar0"/>
                                 <include reference="pfr-u1-vee"/>
                                 <include reference="a6a-b7-zUZ"/>
+                                <include reference="50x-gZ-ANO"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="ROT-Dy-ACP"/>
@@ -492,6 +503,11 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="commentButton" destination="pfr-u1-vee" id="Vco-xb-D2p"/>
+                        <outlet property="deleteButton" destination="50x-gZ-ANO" id="COz-U7-LOC"/>
+                        <outlet property="imageView" destination="a6a-b7-zUZ" id="GUG-BZ-D1F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wca-Z4-B0f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1222,8 +1238,8 @@
         <image name="share" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jJb-bQ-yER"/>
-        <segue reference="yOR-1w-vfU"/>
-        <segue reference="lTH-4q-ryk"/>
+        <segue reference="6pN-Z0-G9x"/>
+        <segue reference="OO9-Sw-J5J"/>
+        <segue reference="aML-Y3-XDI"/>
     </inferredMetricsTieBreakers>
 </document>
